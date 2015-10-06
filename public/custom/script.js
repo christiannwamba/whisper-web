@@ -25,4 +25,10 @@ $(document)
             singleItem: true,
             autoPlay: 3000
         });
+    
+    $('.ui.category.dropdown')
+  .dropdown({
+    allowCategorySelection: true
+  })
+;
     });
