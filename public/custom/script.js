@@ -17,4 +17,12 @@ $(document)
         $('.ui.sidebar')
             .sidebar('attach events', '.toc.item');
 
+        //Carousel in play
+        $("#owl-example").owlCarousel({
+            //navigation: true, // Show next and prev buttons
+            slideSpeed: 1000,
+            paginationSpeed: 2000,
+            singleItem: true,
+            autoPlay: 3000
+        });
     });

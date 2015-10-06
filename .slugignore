@@ -1,2 +1,4 @@
 /public/src/
 /public/app/
+bower.json
+.bowerrc

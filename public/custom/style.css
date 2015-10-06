@@ -5,6 +5,7 @@
 .masthead.segment {
     min-height: 500px;
     padding: 1em 0em;
+    background: url(../img/10.jpg) !important;
 }
 
 .masthead .logo.item img {
@@ -54,6 +55,7 @@
 
 .quote.stripe.segment {
     padding: 0em;
+    background: url(../img/header-pattern-1.png) black !important;
 }
 
 .quote.stripe.segment .grid .column {
@@ -63,10 +65,30 @@
 
 .footer.segment {
     padding: 5em 0em;
+    background: url(../img/header-pattern-1.png) black !important;
+}
+
+.secondary.pointing.menu {
+    border: none !important;
 }
 
 .secondary.pointing.menu .toc.item {
     display: none;
+}
+
+.logo {
+    width: 40px;
+    margin: 5px 5px;
+    height: 40px;
+}
+
+.banner-logo {
+    width: 100px !important;
+    height: 100px !important;
+}
+
+.brand-text {
+    color: #6C207F !important;
 }
 
 @media only screen and (max-width: 700px) {
