@@ -7,7 +7,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/threads',
             views: {
                 '': {
-                    templateUrl: '/templates/routes/threads.view.html'
+                    templateUrl: '/templates/routes/threads.view.html',
+                    data: {
+                        pageTitle: 'Threads'
+                    }
                 }
             }
         });

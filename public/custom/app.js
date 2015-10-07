@@ -15,7 +15,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/',
             views: {
                 '': {
-                    templateUrl: '/templates/routes/home.view.html'
+                    templateUrl: '/templates/routes/home.view.html',
+                    data: {
+                        pageTitle: 'Home'
+                    }
                 }
             }
         });
@@ -30,7 +33,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/threads',
             views: {
                 '': {
-                    templateUrl: '/templates/routes/threads.view.html'
+                    templateUrl: '/templates/routes/threads.view.html',
+                    data: {
+                        pageTitle: 'Threads'
+                    }
                 }
             }
         });
@@ -91,3 +97,24 @@ app.directive('sidebar', function () {
         }
     }
 });
+app.directive('updateTitle', ['$rootScope', '$timeout',
+  function ($rootScope, $timeout) {
+        return {
+            link: function (scope, element) {
+
+                var listener = function (event, toState) {
+                    
+                    var title = 'Default Title';
+                    if (toState.views[""].data && toState.views[""].data.pageTitle)
+                        title = toState.views[""].data.pageTitle;
+
+                    $timeout(function () {
+                        element.text(title + ' - Whisper');
+                    }, 0, false);
+                };
+
+                $rootScope.$on('$stateChangeSuccess', listener);
+            }
+        };
+  }
+]);
