@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="whisper" ng-init="text='Whisper'">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body>
+   <!-- Header Switcher -->
+    <div ng-switch on="state.current.name">
+        <div ng-switch-when="home">
+            <ng-include src="'/templates/includes/header-home.html'"></ng-include>
+        </div>
+        <div ng-switch-when="auth">
+<!--            <ng-include src="'/templates/includes/header-home.html'"></ng-include>-->
+        </div>
+        <div ng-switch-default>
+            <ng-include src="'/templates/includes/header.html'"></ng-include>
+        </div>
+    </div>
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div ui-view></div>
+
+
+        <% include ../partials/footer %>
+    </div>
+
+    <% include ../partials/scripts %>
+</body>
+
+</html>

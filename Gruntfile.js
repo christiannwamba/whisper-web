@@ -10,6 +10,7 @@ module.exports = function (grunt) {
             },
             libjs: {
                 src: ['public/lib/jquery/dist/jquery.min.js',
+                      'public/lib/lodash/lodash.min.js',
                       'public/dist/semantic.min.js',
                     'public/lib/angular/angular.min.js',
                       'public/lib/restangular/dist/restangular.min.js',
