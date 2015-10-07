@@ -1,0 +1,81 @@
+<!--Header-->
+<div class="ui inverted vertical masthead title center aligned segment">
+    <div class="ui text container">
+        <h1 class="ui inverted header">
+                    New Thread
+                </h1>
+        <h2>Use friendly form to create a thread</h2>
+        <a ui-sref="threads" class="ui huge primary button"><i class="left arrow icon"></i> Change of mind?</a>
+    </div>
+
+</div>
+
+<!--Main Content-->
+<div class="ui vertical stripe segment">
+    <!--Bread Crumb-->
+    <div class="ui middle aligned stackable grid container">
+        <div class="ui breadcrumb">
+            <a class="section">Whisper</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section">Threads</a>
+            <i class="right arrow icon divider"></i>
+            <div class="active section">Create</div>
+        </div>
+    </div>
+    <div class="ui middle stackable grid container">
+        <div class="row">
+            <!--Threads-->
+            <div class="ten wide column">
+                <form class="ui form">
+                    <div class="field">
+                        <label>Thread Title</label>
+                        <input type="text" name="title" ng-model="thread.title" placeholder="Thread Title">
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                            <label>Type</label>
+                            <select-dropdown ng-model="thread.type" data="types"></select-dropdown>
+                        </div>
+                        <div class="field">
+                            <label>Channels</label>
+                            <select-dropdown ng-model="thread.channel" data="channels"></select-dropdown>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Thread Content</label>
+                        <textarea name="" ckeditor="threadEditor" ng-model="thread.content" id="" cols="30" rows="10" placeholder="Type your question here"></textarea>
+
+                    </div>                    
+                    <div class="field">
+                        <label>Tags</label>
+                        <multiple-dropdown ng-model="thread.tags" data="allTags"></multiple-dropdown>
+                        {{thread.tags}}
+                    </div>
+                    <div class="field">                        
+                            <label><a href="">We can guide you if you are confused...</a></label>
+                    </div>
+                    <div class="ui buttons">
+                        <a class="ui button">Cancel</a>
+                        <div class="or"></div>
+                        <a class="ui positive button">Create</a>
+                    </div>
+                </form>
+            </div>
+            <!--Sidebar-->
+            <div class="six wide column">
+                <div ng-include="'/templates/includes/sidebar.html'"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Footer Widets-->
+<div class="ui vertical stripe segment">
+    <div ng-include="'/templates/includes/footer-widget.html'"></div>
+</div>
+
+

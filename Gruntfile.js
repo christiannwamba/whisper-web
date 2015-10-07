@@ -9,7 +9,7 @@ module.exports = function (grunt) {
                 dest: 'public/custom/app.js',
             },
             libjs: {
-                src: ['public/lib/jquery/dist/jquery.min.js',
+                src: ['public/lib/jquery/dist/jquery.min.js',                      
                       'public/lib/lodash/lodash.min.js',
                       'public/dist/semantic.min.js',
                     'public/lib/angular/angular.min.js',
