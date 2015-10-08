@@ -137,6 +137,42 @@
     text-align: right;
 }
 
+.login-body {
+    background-color: #DADADA !important;
+}
+
+.login-body > .grid {
+    height: 100% !important;
+}
+
+.login-logo {
+    /*    margin-top: -100px !important;*/
+    display: block !important;
+    margin: auto !important;
+}
+
+.login-column {
+    max-width: 450px !important;
+    margin-top: 10% !important;
+}
+
+.signup-column {
+    max-width: 450px !important;
+    margin-top: 3% !important;
+}
+
+.comment.not-answered {
+    border-top: 1px solid red !important;
+}
+
+.comment.answered {
+    border-top: 1px solid green !important;
+}
+
+.comment {
+    border-top: 1px solid #ccc !important;
+}
+
 @media only screen and (max-width: 700px) {
     .ui.header-menu > a:not(.logo-link) {
         display: none !important;

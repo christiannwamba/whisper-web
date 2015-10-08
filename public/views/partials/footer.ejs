@@ -1,4 +1,12 @@
-<div class="ui inverted vertical footer segment">
+<div ng-switch on="state.current.name">
+    <div ng-switch-when="login">
+        <!--            <ng-include src="'/templates/includes/header-home.html'"></ng-include>-->
+    </div>
+    <div ng-switch-when="signup">
+        <!--            <ng-include src="'/templates/includes/header-home.html'"></ng-include>-->
+    </div>
+    <div ng-switch-default>
+        <div class="ui inverted vertical footer segment">
             <div class="ui container">
                 <div class="ui stackable inverted divided equal height stackable grid">
                     <div class="four wide column">
@@ -52,3 +60,5 @@
                 </h4>
             </div>
         </div>
+    </div>
+</div>

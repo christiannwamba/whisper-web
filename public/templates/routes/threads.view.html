@@ -153,8 +153,9 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="ui threaded comments">
-                    <div class="comment">
+                    <div class="comment answered">
                         <a class="ui teal right corner label">
                             <i class="comment icon"></i>
                         </a>
@@ -170,13 +171,12 @@
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit aliquam iure cupiditate, voluptatibus quia veritatis, necessitatibus eaque qui ducimus vitae quaerat vero sequi. Repellendus iure officiis illum ipsa quam vel.
                             </div>
                             <div class="actions">
-                                <a class="reply">View</a>
+                                <a class="reply" ui-sref="thread">View</a>
                                 <a class="reply">Reply</a>
                             </div>
                         </div>
-                        <div class="ui green bottom right attached label">Answered</div>
                     </div>
-                    <div class="comment">
+                    <div class="comment not-answered">
                         <a class="ui red right corner label">
                             <i class="help icon"></i>
                         </a>
@@ -196,7 +196,6 @@
                                 <a class="reply">Reply</a>
                             </div>
                         </div>
-                        <div class="ui orange bottom right attached label">Not Answered</div>
                     </div>
                     <div class="comment">
                         <a class="ui red right corner label">
@@ -409,6 +408,15 @@
                         </div>
                     </div>
                 </div>
+                
+                <!--Thread Legend-->
+                <a class="ui green empty circular label"></a> Answered &nbsp;
+                <a class="ui red empty circular label"></a> Not answered &nbsp;
+                <a class="ui brown empty circular label"></a> Question &nbsp;
+                <a class="ui olive empty circular label"></a> Discussion &nbsp;
+                <a class="ui black empty circular label"></a> Announcement &nbsp;
+                <br>
+                <br>
                 <div class="ui pagination menu">
                     <a class="active item">
     1
@@ -426,6 +434,7 @@
     12
   </a>
                 </div>
+
             </div>
             <!--Sidebar-->
             <div class="six wide column">

@@ -1,11 +1,64 @@
-var app = angular.module('whisper', ['ngAnimate', 'ui.router', 'ngSanitize', 'ngMessages', 'restangular', 'ngCkeditor']);
+var app = angular.module('whisper', ['ngAnimate', 'ui.router', 'ngSanitize', 'ngMessages', 'restangular', 'ngCkeditor', '720kb.datepicker']);
 
-app.run(['$rootScope', '$state', '$stateParams', function ($rootScope, $state, $stateParams) {
+app.run(['$rootScope', '$state', '$stateParams', '$timeout', function ($rootScope, $state, $stateParams, $timeout) {
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
     $rootScope.state = $state;
     $rootScope.stateParams = $stateParams;
-        }]);
+
+    $rootScope.$watch('state.current.name', function (newValue, oldValue) {
+        if (newValue === 'login') {
+            $rootScope.loginState = true;
+        } else if (newValue === 'signup') {
+            $rootScope.loginState = true;
+        } else {
+            $rootScope.loginState = false;
+        }
+    });
+}]);
+var app = angular.module('whisper');
+
+app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+    $stateProvider
+        .state('login', {
+            url: '/login',
+            views: {
+                '': {
+                    templateUrl: '/templates/routes/login.view.html',
+                    data: {
+                        pageTitle: 'Login'
+                    },
+                    controller: ['$scope', 'editor', function ($scope, editor) {
+                        $scope.threadEditor = editor;
+                        $scope.title = 'The topic of a given thread goes here. It could be anythin. Math, Physics, etc. This is just dummy';
+                    }]
+                }
+            }
+        });
+
+    }]);
+
+app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+    $stateProvider
+        .state('signup', {
+            url: '/signup',
+            views: {
+                '': {
+                    templateUrl: '/templates/routes/signup.view.html',
+                    data: {
+                        pageTitle: 'Sign Up'
+                    },
+                    controller: ['$scope', 'editor', function ($scope, editor) {
+                        $scope.threadEditor = editor;
+                        $scope.title = 'The topic of a given thread goes here. It could be anythin. Math, Physics, etc. This is just dummy';
+                    }]
+                }
+            }
+        });
+
+    }]);
 var app = angular.module('whisper');
 
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {

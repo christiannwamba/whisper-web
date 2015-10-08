@@ -6,13 +6,16 @@
 </head>
 
 <body>
-   <!-- Header Switcher -->
+    <!-- Header Switcher -->
     <div ng-switch on="state.current.name">
         <div ng-switch-when="home">
             <ng-include src="'/templates/includes/header-home.html'"></ng-include>
         </div>
-        <div ng-switch-when="auth">
-<!--            <ng-include src="'/templates/includes/header-home.html'"></ng-include>-->
+        <div ng-switch-when="login">
+            <!--            <ng-include src="'/templates/includes/header-home.html'"></ng-include>-->
+        </div>
+        <div ng-switch-when="signup">
+            <!--            <ng-include src="'/templates/includes/header-home.html'"></ng-include>-->
         </div>
         <div ng-switch-default>
             <ng-include src="'/templates/includes/header.html'"></ng-include>
@@ -20,14 +23,14 @@
     </div>
 
     <!-- Page Contents -->
-    <div class="pusher">
+    <div class="pusher" ng-class="{'login-body': loginState}">
         <div ui-view></div>
 
 
         <% include ../partials/footer %>
     </div>
 
-    <% include ../partials/scripts %>    
+    <% include ../partials/scripts %>
 </body>
 
 </html>
