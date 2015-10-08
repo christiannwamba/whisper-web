@@ -108,6 +108,28 @@ var app = angular.module('whisper');
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
     $stateProvider
+        .state('thread', {
+            url: '/thread',
+            views: {
+                '': {
+                    templateUrl: '/templates/routes/thread.view.html',
+                    data: {
+                        pageTitle: 'Thread'
+                    },
+                    controller: ['$scope', 'editor', function ($scope, editor) {
+                        $scope.threadEditor = editor;
+                        $scope.title = 'The topic of a given thread goes here. It could be anythin. Math, Physics, etc. This is just dummy';
+                    }]
+                }
+            }
+        });
+
+    }]);
+var app = angular.module('whisper');
+
+app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+    $stateProvider
         .state('threads', {
             url: '/threads',
             views: {
@@ -505,4 +527,24 @@ angular.module('whisper')
                                     }]
         };
         return ck;
+    });
+var app = angular.module('whisper');
+app.filter('ellipsis', function () {
+        return function (value, wordwise, max, tail) {
+            if (!value) return '';
+
+            max = parseInt(max, 10);
+            if (!max) return value;
+            if (value.length <= max) return value;
+
+            value = value.substr(0, max);
+            if (wordwise) {
+                var lastspace = value.lastIndexOf(' ');
+                if (lastspace != -1) {
+                    value = value.substr(0, lastspace);
+                }
+            }
+
+            return value + (tail || ' …');
+        };
     });

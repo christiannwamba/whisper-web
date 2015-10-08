@@ -1,0 +1,161 @@
+<!--Header-->
+<div class="ui inverted vertical masthead title center aligned segment">
+    <div class="ui text container">
+        <h2 class="header thread-page-header">
+                    The topic of a given thread goes here. It could be anything. Math, Physics, etc. This is just a dummy text.
+                </h2>
+        <a ui-sref="reply" class="ui small positive button">Add Reply &nbsp; <i class="down arrow icon"></i></a>
+    </div>
+
+</div>
+
+<!--Main Content-->
+<div class="ui vertical stripe segment">
+    <!--Bread Crumb-->
+    <div class="ui middle aligned stackable grid container">
+        <div class="ui breadcrumb">
+            <a class="section">Whisper</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section">Home</a>
+            <i class="right arrow icon divider"></i>
+            <a class="section">Category</a>
+            <i class="right arrow icon divider"></i>
+            <div class="active section">{{title | ellipsis:true:50}}</div>
+        </div>
+    </div>
+    <div class="ui middle stackable grid container">
+        <div class="row">
+            <!--Threads-->
+            <div class="ten wide column">
+                <div class="ui green card thread-card">
+                    <div class="content">
+                        <img class="right floated mini ui image" src="img/avatar/elliot.jpg">
+                        <div class="header">
+                            Blessing Onyegbule
+                        </div>
+                        <div class="meta">
+                            <i class="fa fa-clock-o icon"></i> 4 days ago
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores veniam sequi nam. Id eveniet neque mollitia dolorum laborum adipisci explicabo fugit deserunt rem eos nihil commodi odit, ipsam, a error. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eligendi sequi quam consectetur. Alias magni tempore nesciunt nostrum velit modi exercitationem quisquam quaerat, magnam repellendus, harum dolores dolor corrupti, at!
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a>
+                            <i class="comment outline icon"></i> Reply
+                        </a>
+                        &nbsp;
+                        <a>
+                            <i class="linkify icon"></i> Link
+                        </a>
+                    </div>
+                </div>
+                <h3 class="align text right">Replies</h3>
+                <div class="ui purple card thread-card">
+                    <div class="content">
+                        <img class="right floated mini ui image" src="img/avatar/elliot.jpg">
+                        <div class="header">
+                            Okpara Jael
+                        </div>
+                        <div class="meta">
+                            <i class="fa fa-clock-o icon"></i> 2 days ago
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis fugiat exercitationem consequuntur, repudiandae in, provident odio maxime tenetur ipsa distinctio accusamus enim hic. Repellendus accusantium minima voluptate nulla rem cum!
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a>
+                            <i class="checkmark icon"></i> Mark as Answer
+                        </a>
+                        &nbsp;
+                        <a>
+                            <i class="fa fa-thumbs-up icon"></i> Like
+                        </a>
+                        &nbsp;
+                        <a>
+                            <i class="linkify icon"></i> Link
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class="ui green card thread-card">
+                    <div class="content">
+                        <img class="right floated mini ui image" src="img/avatar/elliot.jpg">
+                        <div class="header">
+                            Christian Nwamba
+                        </div>
+                        <div class="meta">
+                            <i class="fa fa-clock-o icon"></i> 2 days ago
+                        </div>
+                        <div class="description">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis fugiat exercitationem consequuntur, repudiandae in, provident odio maxime tenetur ipsa distinctio accusamus enim hic. Repellendus accusantium minima voluptate nulla rem cum!
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a>
+                            <i class="checkmark icon"></i> Mark as Answer
+                        </a>
+                        &nbsp;
+                        <a>
+                            <i class="fa fa-thumbs-up icon"></i> Like
+                        </a>
+                        &nbsp;
+                        <a>
+                            <i class="linkify icon"></i> Link
+                        </a>
+                    </div>
+                </div>
+                <div class="ui purple card thread-card">
+                    <div class="content">
+                        <img class="right floated mini ui image" src="img/avatar/elliot.jpg">
+                        <div class="header">
+                            Christian Nwamba
+                        </div>
+                        <div class="meta">
+                            <i class="fa fa-clock-o icon"></i> 2 days ago
+                        </div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis fugiat exercitationem consequuntur, repudiandae in, provident odio maxime tenetur ipsa distinctio accusamus enim hic. Repellendus accusantium minima voluptate nulla rem cum!</p>
+                        </div>
+                    </div>
+                    <div class="extra content">
+                        <a>
+                            <i class="checkmark icon"></i> Mark as Answer
+                        </a>
+                        &nbsp;
+                        <a>
+                            <i class="fa fa-thumbs-up icon"></i> Like
+                        </a>
+                        &nbsp;
+                        <a>
+                            <i class="linkify icon"></i> Link
+                        </a>
+                    </div>
+                </div>
+                <h3>New Reply</h3>
+                <form class="ui form">
+                    <div class="field">
+                        <label>Thread Content</label>
+                        <textarea name="" ckeditor="threadEditor" ng-model="thread.content" id="" cols="30" rows="10" placeholder="Type your question here"></textarea>
+                    </div>                                       
+                    <div class="ui buttons">
+                        <a class="ui button">Cancel</a>
+                        <div class="or"></div>
+                        <a class="ui positive button">Reply</a>
+                    </div>
+                </form>
+            </div>
+            <!--Sidebar-->
+            <div class="six wide column">
+                <div ng-include="'/templates/includes/sidebar.html'"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Footer Widets-->
+<div class="ui vertical stripe segment">
+    <div ng-include="'/templates/includes/footer-widget.html'"></div>
+</div>

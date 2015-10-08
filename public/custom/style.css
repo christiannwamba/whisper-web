@@ -120,6 +120,23 @@
     border-radius: 0px;
 }
 
+.thread-page-header {
+    margin-top: 25px !important;
+}
+
+.ui.card.thread-card {
+    width: 100% !important;
+    border-radius: 0 !important;
+}
+
+.ui.card.thread-card img {
+    border-radius: 50%;
+}
+
+.align.text.right {
+    text-align: right;
+}
+
 @media only screen and (max-width: 700px) {
     .ui.header-menu > a:not(.logo-link) {
         display: none !important;
