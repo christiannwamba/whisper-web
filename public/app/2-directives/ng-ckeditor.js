@@ -19,6 +19,7 @@
             throw new Error('CKEDITOR not found');
         }
         CKEDITOR.disableAutoInline = true;
+
         function checkLoaded() {
             if (CKEDITOR.status === 'loaded') {
                 loaded = true;
@@ -49,7 +50,11 @@
                 if (!isTextarea) {
                     element.attr('contenteditable', true);
                 }
-
+                CKEDITOR.plugins.addExternal('lineutils', '/custom/ckplugins/lineutils/', 'plugin.js');
+                CKEDITOR.plugins.addExternal('widget', '/custom/ckplugins/widget/', 'plugin.js');
+                CKEDITOR.plugins.addExternal('eqneditor', '/custom/ckplugins/eqneditor/', 'plugin.js');
+                CKEDITOR.plugins.addExternal('base64image', '/custom/ckplugins/base64image/', 'plugin.js');
+                CKEDITOR.plugins.addExternal('codesnippet', '/custom/ckplugins/codesnippet/', 'plugin.js');
                 var onLoad = function () {
                     var options = {
                         toolbar: 'full',
@@ -58,27 +63,51 @@
                                 name: 'basicstyles',
                                 items: ['Bold', 'Italic', 'Strike', 'Underline']
                             },
-                            {name: 'paragraph', items: ['BulletedList', 'NumberedList', 'Blockquote']},
-                            {name: 'editing', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']},
-                            {name: 'links', items: ['Link', 'Unlink', 'Anchor']},
-                            {name: 'tools', items: ['SpellChecker', 'Maximize']},
+                            {
+                                name: 'paragraph',
+                                items: ['BulletedList', 'NumberedList', 'Blockquote']
+                            },
+                            {
+                                name: 'editing',
+                                items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
+                            },
+                            {
+                                name: 'links',
+                                items: ['Link', 'Unlink', 'Anchor']
+                            },
+                            {
+                                name: 'tools',
+                                items: ['SpellChecker', 'Maximize']
+                            },
                             '/',
                             {
                                 name: 'styles',
                                 items: ['Format', 'FontSize', 'TextColor', 'PasteText', 'PasteFromWord', 'RemoveFormat']
                             },
-                            {name: 'insert', items: ['Image', 'Table', 'SpecialChar']},
-                            {name: 'forms', items: ['Outdent', 'Indent']},
-                            {name: 'clipboard', items: ['Undo', 'Redo']},
-                            {name: 'document', items: ['PageBreak', 'Source']}
+                            {
+                                name: 'insert',
+                                items: ['Image', 'Table', 'SpecialChar']
+                            },
+                            {
+                                name: 'forms',
+                                items: ['Outdent', 'Indent']
+                            },
+                            {
+                                name: 'clipboard',
+                                items: ['Undo', 'Redo']
+                            },
+                            {
+                                name: 'document',
+                                items: ['PageBreak', 'Source']
+                            }
                         ],
                         disableNativeSpellChecker: false,
                         uiColor: '#FAFAFA',
-//                        skin: 'office2013',
+                        //                        skin: 'office2013',
                         height: '400px',
                         width: '100%'
                     };
-                    options = angular.extend(options, scope[attrs.ckeditor]);                    
+                    options = angular.extend(options, scope[attrs.ckeditor]);
                     var instance = (isTextarea) ? CKEDITOR.replace(element[0], options) : CKEDITOR.inline(element[0], options),
                         configLoaderDef = $q.defer();
 
@@ -88,31 +117,32 @@
                         }
                     });
                     var setModelData = function (setPristine) {
-                        var data = instance.getData();
-                        if (data === '') {
-                            data = null;
-                        }
-                        $timeout(function () { // for key up event
-                            if (setPristine !== true || data !== ngModel.$viewValue) {
-                                ngModel.$setViewValue(data);
+                            var data = instance.getData();
+                            if (data === '') {
+                                data = null;
+                            }
+                            $timeout(function () { // for key up event
+                                if (setPristine !== true || data !== ngModel.$viewValue) {
+                                    ngModel.$setViewValue(data);
+                                }
+
+                                if (setPristine === true && form) {
+                                    form.$setPristine();
+                                }
+                            }, 0);
+                        },
+                        onUpdateModelData = function (setPristine) {
+                            if (!data.length) {
+                                return;
                             }
 
-                            if (setPristine === true && form) {
-                                form.$setPristine();
-                            }
-                        }, 0);
-                    }, onUpdateModelData = function (setPristine) {
-                        if (!data.length) {
-                            return;
-                        }
-
-                        var item = data.pop() || EMPTY_HTML;
-                        isReady = false;
-                        instance.setData(item, function () {
-                            setModelData(setPristine);
-                            isReady = true;
-                        });
-                    };
+                            var item = data.pop() || EMPTY_HTML;
+                            isReady = false;
+                            instance.setData(item, function () {
+                                setModelData(setPristine);
+                                isReady = true;
+                            });
+                        };
 
                     //instance.on('pasteState',   setModelData);
                     instance.on('change', setModelData);

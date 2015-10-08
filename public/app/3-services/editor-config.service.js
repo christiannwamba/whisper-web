@@ -1,6 +1,7 @@
 angular.module('whisper')
     .factory('editor', function () {
-        var ck = {
+        var ck = {};       
+        ck = {
             extraPlugins: "eqneditor,base64image,codesnippet",
             codeSnippet_theme: 'monokai_sublime',
             allowedContent: true,
