@@ -24,5 +24,4 @@ app.get('/threads', function (req, res) {
 });
 
 app.listen(port);
-console.log(config);
 console.log('app @ ' + port + ' using ' + env);

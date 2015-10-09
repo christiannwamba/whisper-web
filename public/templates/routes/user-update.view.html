@@ -1,0 +1,132 @@
+<!--Header-->
+<div class="ui inverted vertical masthead title center aligned segment">
+    <div class="ui text container">
+        <h2 class="ui inverted header thread-page-header">
+                    <img src="img/avatar/christian.jpg" class="user-profile-logo" alt=""> Chima Onuigbo (3243 points)
+                </h2>
+        <h4>I am passiontate to see people learn</h4>
+        <a ui-sref="user" class="ui primary button"><i class="left arrow icon"></i>&nbsp;Changed your mind?</a>
+    </div>
+
+</div>
+
+<!--Main Content-->
+<div class="ui vertical stripe segment">
+    <!--Bread Crumb-->
+    <div class="ui middle aligned stackable grid container">
+        <div class="ui breadcrumb">
+            <a class="section">Whisper</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section">Home</a>
+            <i class="right arrow icon divider"></i>
+            <a class="section">Users</a>
+            <i class="right arrow icon divider"></i>
+            <div class="active section">Update: <a href="#">Onuigbo Chima</a></div>
+        </div>
+    </div>
+    <div class="ui middle stackable grid container">
+        <div class="row">
+            <div class="eight wide column">
+                <form action="" class="ui form">
+                    <h4>General</h4>
+                    <div class="two fields">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="first_name" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="last_name" placeholder="Last Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                           <label>Date of Birth</label>
+                            <div class="ui left icon input">
+                                <i class="fa fa-clock-o icon"></i>
+                                <input type="date" name="dob" placeholder="Date of Birth">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Gender</label>
+                            <select-dropdown ng-model="gender" data="genders"></select-dropdown>
+                        </div>
+                    </div>
+                    <h4>Contact</h4>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="mail icon"></i>
+                            <input type="text" name="email" placeholder="E-mail address">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="fa fa-globe icon"></i>
+                            <input type="text" name="email" placeholder="Website">
+                        </div>
+                    </div>
+                    <div class="two fields">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="facebook icon"></i>
+                                <input type="text" name="last_name" placeholder="Facebook Username">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="twitter icon"></i>
+                                <input type="text" name="last_name" placeholder="Twitter Handle">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="instagram icon"></i>
+                                <input type="text" name="last_name" placeholder="IG">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="call icon"></i>
+                            <input type="text" name="last_name" placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <h4>Location</h4>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="fa fa-map-marker icon"></i>
+                            <input type="text" name="last_name" placeholder="Address">
+                        </div>
+                    </div>
+                    
+                     <h4>Bio</h4>
+                    <div class="field">                                                    
+                            <textarea rows="3" placeholder="The community would love you to describe yourself in a short sentence."></textarea>
+                    </div>
+                    
+                     <div class="ui buttons">
+                        <a class="ui button">Cancel</a>
+                        <div class="or"></div>
+                        <a class="ui positive button">Update</a>
+                    </div>
+                </form>
+            </div>
+            <!--
+            <div class="eight wide column">
+
+            </div>
+-->
+
+        </div>
+    </div>
+</div>
+
+<!--Footer Widets-->
+<div class="ui vertical stripe segment">
+    <h2 class="align text center">Activities</h2>
+    <div ng-include="'/templates/includes/user-footer-widget.html'"></div>
+</div>
